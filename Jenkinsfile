@@ -18,9 +18,9 @@ node {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
 
-       * image.inside {
+      /* image.inside {
        *     sh 'echo "Tests passed"'
-       * }
+       * } */
     }
     stage('Push to ECR') {
         docker.withRegistry('https://060301694335.dkr.ecr.eu-west-1.amazonaws.com/ubuntu-wp'){
