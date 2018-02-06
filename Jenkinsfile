@@ -2,7 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Checkout') {
+	    steps {
+		checkout scm
+	    }
+	}
+	stage('Build') {
             steps {
                 echo 'Building..'
 		app = docker.build(webserver)
