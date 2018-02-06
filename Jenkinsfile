@@ -8,10 +8,8 @@ pipeline {
             }
         }
         stage('Build') {
-            steps {
-                echo 'Building..'
-                app = docker.build("webserver")
-            }
+            echo 'Building..'
+            app = docker.build("webserver")
         }
         stage('Test') {
             steps {
