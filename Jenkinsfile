@@ -22,8 +22,9 @@ node {
             sh 'echo "Tests passed"'
         }
     }
-    docker.withRegistry('https://060301694335.dkr.ecr.eu-west-1.amazonaws.com/ubuntu-wp'){
-        image.push 'latest'
+    stage('Push to ECR') {
+        docker.withRegistry('https://060301694335.dkr.ecr.eu-west-1.amazonaws.com/ubuntu-wp'){
+            image.push 'latest'
+        }
     }
-
 }
