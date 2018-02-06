@@ -22,4 +22,10 @@ node {
             sh 'echo "Tests passed"'
         }
     }
+
+    stage('Puch to ECR') {
+        docker.withRegistry("060301694335.dkr.ecr.eu-west-1.amazonaws.com/ubuntu-wp") {
+            docker.image(app).push()
+        }
+    }
 }
