@@ -1,4 +1,4 @@
-node {
+\node {
     def app
 
     stage('Clone repository') {
@@ -24,7 +24,7 @@ node {
     }
     stage('Push to ECR') {
         docker.withRegistry('https://060301694335.dkr.ecr.eu-west-1.amazonaws.com', 'ecr:eu-west-1:aws-ecr-access'){
-            image.push 'web:${env.BUILD_ID}'
+            image.push "web:${env.BUILD_ID}"
         }
     }
 }
