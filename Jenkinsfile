@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        image = docker.build("webserver${env.BUILD_ID}")
+        image = docker.build("ubuntu-wp/webserver:${env.BUILD_ID}")
     }
 
     stage('Test image') {
