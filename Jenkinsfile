@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        image = docker.build("web/server")
+        image = docker.build("ubuntu-wp/webserver${env.BUILD_ID}")
     }
 
     stage('Test image') {
@@ -23,7 +23,7 @@ node {
        * } */
     }
     stage('Push to ECR') {
-        docker.withRegistry('https://060301694335.dkr.ecr.eu-west-1.amazonaws.com/ubuntu-wp', 'ecr:eu-west-1:aws-ecr-access'){
+        docker.withRegistry('https://060301694335.dkr.ecr.eu-west-1.amazonaws.com', 'ecr:eu-west-1:aws-ecr-access'){
             image.push 'latest'
         }
     }
