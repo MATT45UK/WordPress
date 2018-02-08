@@ -6,5 +6,8 @@ RUN apt install -y php7.0 libapache2-mod-php7.0 php7.0-cli php7.0-common php7.0-
 RUN rm /var/www/html/index.html
 COPY / /var/www/html/
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
+RUN a2dissite 000-default
+RUN sudo a2ensite 000-default
+RUN /etc/init.d/apache2 restart
 CMD /usr/sbin/apache2ctl -D FOREGROUND
 EXPOSE 80
