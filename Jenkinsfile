@@ -23,7 +23,7 @@ node {
        * } */
     }
     stage('Push to ECR') {
-        docker.withRegistry('https://hub.docker.com/r/matt45uk/wp-ubuntu/', 'dockerhub'){
+        docker.withRegistry('matt45uk\wp-ubuntu', 'dockerhub'){
             image.push "web"
         }
     }
