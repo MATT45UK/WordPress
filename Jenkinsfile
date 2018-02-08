@@ -23,7 +23,7 @@ node {
        * } */
     }
     stage('Push to ECR') {
-        docker.withRegistry('https://060301694335.dkr.ecr.eu-west-1.amazonaws.com', 'ecr:eu-west-1:aws-ecr-access'){
+        docker.withRegistry('https://060301694335.dkr.ecr.eu-west-1.amazonaws.com', 'ecr:eu-west-1:amazonecr'){
             image.push "web"
         }
     }
