@@ -23,7 +23,7 @@ node {
        * } */
     }
     stage('Push to ECR') {
-        docker.withRegistry('https://060301694335.dkr.ecr.eu-west-1.amazonaws.com', 'ecr:eu-west-1:amazonecr'){
+        docker.withRegistry('https://hub.docker.com/r/matt45uk/wp-ubuntu/', 'dockerhub'){
             image.push "web"
         }
     }
